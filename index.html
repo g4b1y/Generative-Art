@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta lang="en" content="en">
+        <link rel="stylesheet" href="./style/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1 id="Heading" style="text-align:center; font-size: 50px; color: #ffffff; font-weight: 1;" >Generative Art</h1>
+            <div id="canvas-container"></div> 
+            <div class="container1">
+                <!-- Slider 1 -->
+                <div class="input-container">
+                    <label for="slider1">Max Particle-size</label>
+                    <input type="range" min="1" max="50" value="3" step="1" class="slider" id="slider1">
+                </div>
+
+                <!-- Slider 2 -->
+                <div class="input-container">
+                    <label for="slider1">Min Particle-size</label>
+                    <input type="range" min="1" max="49" value="0" step="1" class="slider" id="slider2">
+                </div>
+
+                <!-- Slider 3 -->
+                <div class="input-container">
+                    <label for="slider2">Particle-count</label>
+                    <input type="range" min="1" max="5000" value="2500" step="1" class="slider" id="slider3">
+                </div>
+                <!-- Checkbox1 -->
+                <div class="input-container">
+                    <label for="checkbox1"><span></span>Random Points</label>
+                    <input type="checkbox" id="checkbox1" class="checkbox">
+                </div>
+                <!-- Slider 4 -->
+                <div class="input-container">
+                    <label for="slider3">Abstractness</label>
+                    <input type="range" min="0" max="0.999" value="0.8" step="0.001" class="slider" id="slider4">
+                </div>
+                <!-- Slider 5 -->
+                <div class="input-container">
+                    <label for="slider4">Speed</label>
+                    <input type="range" min="1" max="3" value="0.0" step="0.01" class="slider" id="slider5">
+                </div>
+                <!-- Slider 6 -->
+                <div class="input-container">
+                    <label for="slider4">Color</label>
+                    <input type="range" min="0" max="1" value="0" step="0.01" class="slider" id="slider6">
+                </div>
+
+                <div class="input-container">
+                    <button type="button" id="button1">Reset</button>
+                </div>
+
+            </div> 
+            <div class="container2">
+                <div class="info-paragraph" >
+                    <p>
+                        Generative art is an innovative form of digital art that is created using algorithms and mathematical rules to produce unique, 
+                        complex and abstract pieces. It has become increasingly popular in recent years due to the ease of access to powerful computer systems and software tools.
+                        The creation of generative art involves the programming of a system that is capable of producing artwork automatically, usually in a randomized or algorithmic 
+                        manner. The artist designs and modifies the system to control the output, but the actual artwork generated is unpredictable and can result in an infinite number of variations.
+                        Generative art is not only a final result but also a process of creation. The artist can modify the algorithm and experiment with different settings to achieve the desired effect. 
+                        The result is a collaboration between the artist and the algorithm, often resulting in unexpected and creative outcomes.
+                        One of the key features of generative art is that it is not static but rather it evolves over time. 
+                    </p>
+                </div>
+            </div>
+        </div> 
+       
+        <script src="./dist/bundle.js"></script>
+    </body>
+</html>
+
