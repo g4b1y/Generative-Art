@@ -8,7 +8,7 @@
     </head>
     <body>
         <div class="wrapper">
-            <h1 id="Heading" style="text-align:center; font-size: 50px; color: #ffffff; font-weight: 1;" >Generative Art</h1>
+            <h1 id="Heading">Generative Art</h1>
             <div id="canvas-container"></div> 
             <div class="container1">
                 <!-- Slider 1 -->
@@ -30,8 +30,11 @@
                 </div>
                 <!-- Checkbox1 -->
                 <div class="input-container">
-                    <label for="checkbox1"><span></span>Random Points</label>
-                    <input type="checkbox" id="checkbox1" class="checkbox">
+                    <button class="cybr-btn" id="randomPointButton">
+                        Random Points<span aria-hidden></span>
+                        <span aria-hidden class="cybr-btn__glitch">Random Points</span>
+                        <span aria-hidden class="cybr-btn__tag">_</span>
+                    </button>
                 </div>
                 <!-- Slider 4 -->
                 <div class="input-container">
@@ -50,7 +53,11 @@
                 </div>
 
                 <div class="input-container">
-                    <button type="button" id="button1">Reset</button>
+                    <button class="cybr-btn" id="RefreshButton">
+                        New Picture<span aria-hidden>_</span>
+                        <span aria-hidden class="cybr-btn__glitch">Reset_</span>
+                        <span aria-hidden class="cybr-btn__tag">_</span>
+                    </button>
                 </div>
 
             </div> 

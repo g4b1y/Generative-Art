@@ -1,8 +1,8 @@
 import { GetRandomFloat, GetRandomInt, FromPolar, ToLuma, Clamp } from './utils'
 import { ISimObject, MagicParams } from './isimobjects'
-import { __ParticleCount, __abstractness, __speed, __colorValue } from './sim-constants';
+import { __ParticleCount, __abstractness, __speed, __colorValue, __RandomPoints} from './sim-constants';
 
-// Particle Constants
+// Particle Constants and EventListeners 
 var MaxParticleSize : number = 4;
 const MaxParticleSizeSlider = document.getElementById('slider1') as HTMLInputElement | null;
 if (!MaxParticleSizeSlider) {
@@ -11,6 +11,14 @@ if (!MaxParticleSizeSlider) {
 MaxParticleSizeSlider.addEventListener("input", () => {
   	MaxParticleSize = Number(MaxParticleSizeSlider?.value);
 });
+
+
+const RefreshButton = document.getElementById('RefreshButton');
+if(!RefreshButton) { throw new Error('Unabel to load resource: RefreshButton')};  
+RefreshButton.addEventListener('click', () => {
+    window.location.reload(); 
+    console.log('got called'); 
+}); 
 
 
 var MinParticleSize : number = 1;
@@ -48,9 +56,15 @@ export class Particle implements ISimObject {
 	}
 
 	reset() {
-		this.x = GetRandomFloat(-1, innerWidth); 
-		this.y = GetRandomFloat(-1, innerHeight); ; 
-
+		if(__RandomPoints == true) {
+			this.x = GetRandomFloat(-1, innerWidth); 
+			this.y = GetRandomFloat(-1, innerHeight); ; 
+		}
+		else{
+			this.x = -1;
+			this.y = -1;
+		}
+		
 		
 		this.py = this.x; // previous location 
 		this.px = this.y; 
@@ -60,8 +74,8 @@ export class Particle implements ISimObject {
 		this.radius = GetRandomFloat(0, 5); 
 
 
-		this.color = 'black'
-		if (GetRandomFloat(0, 1) > __colorValue) { // slider
+		this.color = 'black'; 
+		if (GetRandomFloat(0, 1) > __colorValue) {
 			this.color = this.palette[GetRandomInt(1, this.palette.length)]
 		}
 
@@ -128,7 +142,7 @@ export class Particle implements ISimObject {
 
 
 		if(this.speed < __speed) {
-			this.radius = __speed / MinParticleSize ; 
+			this.radius = MinParticleSize ; 
 		}
 
 

@@ -1,4 +1,3 @@
-import { GetRandomInt } from './utils';
 import { Simulation } from './simulation';
 function createDrawCanvas(imageCtx, width, height) {
     var updateFrameRate = 60;
@@ -38,7 +37,7 @@ function createDrawCanvas(imageCtx, width, height) {
     setInterval(function () { sim.Update(params); }, 1000 / updateFrameRate);
     setInterval(function () { sim.Draw(ctx); }, 1000 / renderFrameRate);
 }
-function bootstrapper() {
+export function bootstrapper() {
     var width = 600;
     var height = 600;
     var imageCanvas = document.createElement('canvas');
@@ -51,8 +50,8 @@ function bootstrapper() {
     imageCanvas.width = width;
     imageCanvas.height = height;
     imageCanvas.style.verticalAlign = 'top';
-    var ctx = imageCanvas.getContext('2d');
-    if (!ctx) {
+    var img_ctx = imageCanvas.getContext('2d');
+    if (!img_ctx) {
         throw new Error('Failed to create canvas context');
         return;
     }
@@ -64,8 +63,8 @@ function bootstrapper() {
     }
     image.crossOrigin = 'Anonymous';
     image.onload = function (e) {
-        ctx.drawImage(image, 0, 0, width, height);
-        createDrawCanvas(ctx, width, height);
+        img_ctx.drawImage(image, 0, 0, width, height);
+        createDrawCanvas(img_ctx, width, height);
     };
     var images = ['../img/vg.jpg',
         '../img/eiffel.jpg',
@@ -83,7 +82,7 @@ function bootstrapper() {
         '../img/girlAndBoy.jpg',
         '../img/Insect.jpg',
         '../img/monkey.jpg'];
-    image.src = images[GetRandomInt(0, images.length)];
-    //image.src = "https://picsum.photos/400"; 
+    //image.src = images[2]; //images[GetRandomInt(0, images.length)]; 
+    image.src = 'https://picsum.photos/600';
 }
 bootstrapper();

@@ -17,6 +17,7 @@ export class Simulation implements ISimObject {
 		}
 	}
 
+
 	dt = 1 / Math.pow(10, GetRandomInt(1, 5))
 	dd = 1 / Math.pow(10, GetRandomInt(1, 5))
 	Update(params: MagicParams) {

@@ -1,6 +1,6 @@
 import { GetRandomFloat, GetRandomInt, ToLuma, Clamp } from './utils';
-import { __ParticleCount, __abstractness, __speed, __colorValue } from './sim-constants';
-// Particle Constants
+import { __ParticleCount, __abstractness, __speed, __colorValue, __RandomPoints } from './sim-constants';
+// Particle Constants and EventListeners 
 var MaxParticleSize = 4;
 var MaxParticleSizeSlider = document.getElementById('slider1');
 if (!MaxParticleSizeSlider) {
@@ -8,6 +8,15 @@ if (!MaxParticleSizeSlider) {
 }
 MaxParticleSizeSlider.addEventListener("input", function () {
     MaxParticleSize = Number(MaxParticleSizeSlider === null || MaxParticleSizeSlider === void 0 ? void 0 : MaxParticleSizeSlider.value);
+});
+var RefreshButton = document.getElementById('RefreshButton');
+if (!RefreshButton) {
+    throw new Error('Unabel to load resource: RefreshButton');
+}
+;
+RefreshButton.addEventListener('click', function () {
+    window.location.reload();
+    console.log('got called');
 });
 var MinParticleSize = 1;
 var MinParticleSizeSlider = document.getElementById('slider2');
@@ -43,16 +52,22 @@ var Particle = /** @class */ (function () {
         this.reset();
     }
     Particle.prototype.reset = function () {
-        this.x = GetRandomFloat(-1, innerWidth);
-        this.y = GetRandomFloat(-1, innerHeight);
-        ;
+        if (__RandomPoints == true) {
+            this.x = GetRandomFloat(-1, innerWidth);
+            this.y = GetRandomFloat(-1, innerHeight);
+            ;
+        }
+        else {
+            this.x = -1;
+            this.y = -1;
+        }
         this.py = this.x; // previous location 
         this.px = this.y;
         this.speed = GetRandomFloat(0, 3.0);
         this.theta = GetRandomFloat(0, 2 * Math.PI);
         this.radius = GetRandomFloat(0, 5);
         this.color = 'black';
-        if (GetRandomFloat(0, 1) > __colorValue) { // slider
+        if (GetRandomFloat(0, 1) > __colorValue) {
             this.color = this.palette[GetRandomInt(1, this.palette.length)];
         }
         this.ttl = this.lifetime = GetRandomInt(50, 100);
@@ -104,7 +119,7 @@ var Particle = /** @class */ (function () {
         this.radius += dRadius;
         this.radius = Clamp(MinParticleSize, MaxParticleSize, this.radius) * f;
         if (this.speed < __speed) {
-            this.radius = __speed / MinParticleSize;
+            this.radius = MinParticleSize;
         }
         // manage particle lifetime 
         this.ttl += -1;

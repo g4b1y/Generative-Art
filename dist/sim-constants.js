@@ -30,6 +30,20 @@ if (!colorValueSlider) {
 colorValueSlider.addEventListener("input", function () {
     __colorValue = Number(colorValueSlider === null || colorValueSlider === void 0 ? void 0 : colorValueSlider.value);
 });
+export var __RandomPoints = false;
+var RandomPointButton = document.getElementById('randomPointButton');
+if (!RandomPointButton) {
+    throw new Error("Unable to get value of RandomPointButton");
+}
+RandomPointButton.addEventListener("click", function () {
+    if (__RandomPoints == true) {
+        __RandomPoints = false;
+    }
+    else {
+        __RandomPoints = true;
+    }
+    console.log(String(__RandomPoints));
+});
 export var ColorPalettes = [
     ['#FF00FF', '#00FFFF', '#FFA500', '#FFD700', '#FF1493'],
     ['#8B4513', '#B8860B', '#CD853F', '#D2691E', '#A0522D'],

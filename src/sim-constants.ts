@@ -35,6 +35,20 @@ colorValueSlider.addEventListener("input", () => {
   __colorValue = Number(colorValueSlider?.value);
 });
 
+export var __RandomPoints: Boolean = false; 
+const RandomPointButton = document.getElementById('randomPointButton');
+if (!RandomPointButton) {
+  throw new Error("Unable to get value of RandomPointButton");
+}
+RandomPointButton.addEventListener("click", () => {
+  if(__RandomPoints == true) {
+    __RandomPoints = false; 
+  } 
+  else {
+    __RandomPoints = true; 
+  }
+  console.log(String(__RandomPoints)); 
+});
 
 
 

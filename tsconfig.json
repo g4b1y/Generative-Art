@@ -109,6 +109,7 @@
     "src/app.ts", 
     "src/network.ts", 
     "src/sim-constants.ts", 
-    "src/utils.ts"
+    "src/utils.ts",
+    "src/input.ts"
   ]
 }
