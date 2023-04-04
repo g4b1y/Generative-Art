@@ -110,6 +110,6 @@
     "src/network.ts", 
     "src/sim-constants.ts", 
     "src/utils.ts",
-    "src/input.ts"
+    "src/LandingPageBackground.ts"
   ]
 }

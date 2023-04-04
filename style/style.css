@@ -1,8 +1,10 @@
-* {
-    -webkit-user-select: none; /* Safari */        
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+/Edge */
-    user-select: none; /* Standard */
+*{
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+  margin: 0;
+  padding: 0;
 }
 
 body, html {
@@ -12,15 +14,88 @@ body, html {
     min-width: 800px;
     min-height: 470px; 
     opacity: 1;
+
+}
+html {
+  overflow: scroll; 
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
-/* || CENTER_SECTION */
 
-.wrapper {
-    position: absolute;
-    width: 100%; 
-    height: 100%;   
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* || Landing-Page*/
+
+.landing-Page-Background{
+  position: absolute;
+  min-width: 100vh;
+  min-height: 100vh;
 }
+
+.glass-container {
+  display: flex;
+  align-items: center;
+  min-width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  height: 70%;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+}
+
+.glass-container h1 {
+  margin: auto;
+  display: flex; 
+  justify-content: center;
+  text-align: right;
+  margin-right: 10px;
+  font-family: Cyber, sans-serif;
+  font-size: 50px;
+  color: #fff; 
+}
+
+.horizontal-line {
+  position: relative;
+  display: flex;
+  width: 2px;
+  height: 200px;
+  background-color: #fff;
+}
+
+.glass-container p {
+  margin: auto;
+  margin-left: 10px; 
+  display: flex;
+  color: #fff;
+  font-family: Cyber,sans-serif;
+}
+
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/* || Canvas-Page */
+.Canvas-Page {
+  position: absolute;
+  top: 100%;
+  min-height: 100vh;
+  min-width: 100vh; 
+  background-color: #000; 
+}
+
+.Content-Box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 /* || HEADING 1 Heading */
 #Heading {
@@ -56,7 +131,7 @@ body, html {
     background-color: #101314;
     padding-bottom: 10px;
 }
-
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 /* || SLIDER_SECTION*/
 
@@ -97,7 +172,7 @@ body, html {
     background: #1D738B;
     cursor: pointer;
 }
-
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 /* || CONTAINER1_BUTTON*/
 @font-face {
@@ -279,6 +354,8 @@ body, html {
   .cybr-btn:nth-of-type(2) {
     --primary-hue: 260;
   }
+
+  /*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /* || LABEL_STYLE  */
 
 label {
@@ -296,11 +373,12 @@ label {
 
 /* || CONTAINER2*/
 .container2 {
-    position: relative;
-    width: auto; 
-    height: auto; 
+    position: absolute;
+    top: 200%;
+    min-width: 100%; 
+    min-height: 100vh; 
 }
-
+/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 /* || CONTAINER2 PARAGRAPH*/
 .info-paragraph {
     background-color: #D33B52;
@@ -313,5 +391,5 @@ label {
     font-family: 'Cyber';
     font-size: 16px;
     letter-spacing: 1.2px; 
-}
+}/*/////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
