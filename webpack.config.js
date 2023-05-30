@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    entry: './dist/app.js', 
+    entry: './dist/script.js', 
     watch: true, 
     output: {
         filename: './bundle.js', 

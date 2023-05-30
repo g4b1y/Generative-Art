@@ -106,10 +106,11 @@
     "src/particle.ts", 
     "src/simulation.ts", 
     "src/isimobjects.ts", 
-    "src/app.ts", 
+    "src/InteractiveImage/app.ts", 
     "src/network.ts", 
     "src/sim-constants.ts", 
     "src/utils.ts",
-    "src/LandingPageBackground.ts"
+    "src/LandingPageBackground.ts",
+    "src/Butterfly_Effect/ButterflyEffect.ts"
   ]
 }

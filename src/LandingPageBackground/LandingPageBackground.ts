@@ -1,14 +1,16 @@
 const canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('landing-Page-Background'); 
+const ctx : CanvasRenderingContext2D = <CanvasRenderingContext2D> canvas.getContext('2d');
+
 if(!canvas) {
     throw new Error('Can not create canvas'); 
 }
-const ctx = canvas.getContext('2d');
+
 if(!ctx) {
     throw new Error('Can not create context'); 
 }
 
-const width: number = canvas.width =  window.innerWidth - 20; 
-const height: number = canvas.height = window.innerHeight; 
+const width: number = canvas.width =  window.innerWidth + 20; 
+const height: number = canvas.height = window.innerHeight + 20; 
 canvas.style.backgroundColor = '#000000';
 ctx.strokeStyle = 'hsl(' + Math.random() * 360 + ', 100%, 50%)';
 ctx.lineWidth = 0.2;
@@ -20,7 +22,7 @@ var b = Math.random() * 2 - 4;
 var c = Math.random() * 2 - 4;
 var d = Math.random() * 2 - 4;
 
-console.log(a + '' + b + '' + c + '' + d);
+//console.log(a + '' + b + '' + c + '' + d);
 
 
 // create points. each aligned to left edge of screen,
